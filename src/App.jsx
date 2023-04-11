@@ -20,7 +20,7 @@ import Home from './pages/Home'
 function App() {
 
 
-
+/* MINUTO 50 */
 
   return (
     <HashRouter>
