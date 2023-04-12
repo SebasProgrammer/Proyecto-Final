@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Para que las columnas no se pongan una encima de otra - COLUMNAS */
+.col{
+    margin: 1rem 0;
+}
+
+/* Para que las filas no se pongan una encima de otra y que se despeguen - FILAS */
+.row{
+    padding: 1rem 0;
+}
+
+
+/* Clases de bootstrap personalizadas */
+/* .p-5{
+    3 rem
+} */

@@ -16,11 +16,15 @@ import {
 } from 'react-router-dom'
 import NavBar from './components/NavBar';
 import Home from './pages/Home'
+// Importamos las paginas - pages
+import ProductsDetails from './pages/ProductsDetails';
+import Login from './pages/Login'
+import Purchases from './pages/Purchases'
 
 function App() {
 
 
-/* MINUTO 50 */
+
 
   return (
     <HashRouter>
@@ -30,8 +34,9 @@ function App() {
       <Routes>
             {/* RUTAS */}
         <Route path="/" element={<Home />} />
-    {/*     <Route path="/about" element={} />
-	      <Route path="/about/team" element={} />  */}
+        <Route path="/products/:id" element={<ProductsDetails />} />
+	      <Route path="/login" element={<Login />} /> 
+        <Route path="/purchases" element={<Purchases />} /> 
       </Routes>
            </div>
     </HashRouter>
