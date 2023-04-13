@@ -4,18 +4,46 @@
     box-sizing: border-box;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------- TEORIA--------- */
 /* Para que las columnas no se pongan una encima de otra - COLUMNAS */
-.col{
+/* .col{
     margin: 1rem 0;
-}
+} */
 
 /* Para que las filas no se pongan una encima de otra y que se despeguen - FILAS */
-.row{
+/* .row{
     padding: 1rem 0;
-}
+} */
 
 
 /* Clases de bootstrap personalizadas */
 /* .p-5{
     3 rem
 } */
+
+/* 3 === 1rem */
+
+/* => padding en el y => superior e inferior */
+/* py => padding en el y superior e inferior
+px => en el eje x => izquierda- derecha
+pr => padding rigth
+pl => padding :left
+pt => padding top 
+pb => padding botton */

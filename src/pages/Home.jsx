@@ -7,55 +7,62 @@ import Col from 'react-bootstrap/Col'; //Columnas
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+// Slices - useSelector
+import { useSelector , useDispatch } from 'react-redux';
+import { getProductsThunk } from '../store/slices/products.slice';
+
+import { useEffect } from 'react';
+
 import React from 'react'
 
 function Home() {
+  // Acceder a slices
+  const products = useSelector(state => state.products)
+  const dispatch = useDispatch()
+
+  
+  // Damos funcionalidad - useEffect
+  useEffect(()=> {
+    dispatch(getProductsThunk())
+  },[])
+
+
+
+
+
   return (
     <div>
       <Container>
-          <Row xs={1} md={2} lg={3} className="p-5">
-            {/* Columna 1 */}
-            <Col>
+          <Row xs={1} md={2} lg={3} className="py-3">
+            {/* Mapeo */}
+            {
+              products.map(item => (
+                /* Columnas */
+                <Col className='mb-3' key={item.id}>
               <Card >
-                  <Card.Img variant="top" src="https://picsum.photos/200/300" />
+                {/* Imagen del producto */}
+                  <Card.Img 
+                  variant="top" 
+                  src={item.images} 
+                  /* Estilos */
+                  style={{height: 200 , objectFit: "cover"}}
+                  
+                  
+                  />
                   <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
+                    {/* TITULO DEL PRODUCTO */}
+                  <Card.Title>{item.title}</Card.Title>
+                  {/* DESCRIPCION DEL PRODUCTO */}
                   <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
+                    {item.description}
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  {/* Boton para agregar al carrito */}
+                  <Button variant="primary">Agregar al Carrito</Button>
                   </Card.Body>
               </Card>
-            </Col>
-            {/*  Columna 2*/}
-            <Col>
-              <Card >
-                  <Card.Img variant="top" src="https://picsum.photos/200/300" />
-                  <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-              </Card>
-            </Col>
-            {/* Columna 3 */}
-            <Col>
-              <Card >
-                  <Card.Img variant="top" src="https://picsum.photos/200/300" />
-                  <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-              </Card>
-            </Col>
+                </Col>
+              ))
+              }
           
           </Row>
       </Container>
@@ -75,3 +82,6 @@ Medium	md	≥768px
 Large	lg	≥992px
 Extra large	xl	≥1200px
 Extra extra large	xxl	≥1400px */
+
+
+
