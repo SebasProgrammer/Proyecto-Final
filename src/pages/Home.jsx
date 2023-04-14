@@ -43,9 +43,9 @@ function Home() {
                 {/* Imagen del producto */}
                   <Card.Img 
                   variant="top" 
-                  src={item.images} 
+                  src={item.images?.[0].url} 
                   /* Estilos */
-                  style={{height: 200 , objectFit: "cover"}}
+                  style={{height: 200 , objectFit: "cover", width: 300 } }
                   
                   
                   />
@@ -57,7 +57,7 @@ function Home() {
                     {item.description}
                   </Card.Text>
                   {/* Boton para agregar al carrito */}
-                  <Button variant="primary">Agregar al Carrito</Button>
+                  <Button  variant="primary">Agregar al Carrito</Button>
                   </Card.Body>
               </Card>
                 </Col>

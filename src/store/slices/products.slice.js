@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const productsSlice = createSlice({
-    name:'products',
+    name: 'products',
     initialState: [],
-    reducers:{
-        setProducts: (state , action) => {
+    reducers: {
+        setProducts: (state, action) => {
             return action.payload
         }
     }
@@ -20,6 +20,8 @@ export const getProductsThunk = () => dispatch => {
         .catch(error => console.error(error))
 }
 
-export const {setProducts} = productsSlice.actions;
+export const { setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;
+
+/* ALT + SHIFT + F  */
