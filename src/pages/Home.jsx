@@ -9,11 +9,10 @@ import Card from 'react-bootstrap/Card';
 
 // Slices - useSelector
 import { useSelector , useDispatch } from 'react-redux';
-import { getProductsThunk } from '../store/slices/products.slice';
+import { filterCategoriesThunk, getProductsThunk } from '../store/slices/products.slice';
 
 import { useEffect } from 'react';
 
-import React from 'react'
 import '../App.css'
 
 function Home() {
@@ -27,17 +26,20 @@ function Home() {
     dispatch(getProductsThunk())
   },[])
 
-
-
-
-
   return (
     <div>
       <Container>
-            <h2 className='titleHome'>OPPO RENO 7</h2>
+            {/* <h2 className='titleHome'>OPPO RENO 7</h2>
             <p>Celular Cámara microscópica</p>
-            <img className='Oppo' src="oppo2.png" alt="" />
-            
+            <img className='Oppo' src="oppo2.png" alt="" /> */}
+
+          <Row>
+            <Col>
+              <Button onClick={()=>
+              dispatch(filterCategoriesThunk())}>Filtrar</Button>
+            </Col>
+          </Row>  
+
           <Row xs={1} md={2} lg={3} className="py-3">
             {/* Mapeo */}
             {

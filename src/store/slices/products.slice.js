@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 // Importamos axios
 import axios from "axios";
+import { setIsLoading } from './isLoading.slice';
 
 export const productsSlice = createSlice({
     name: 'products',
@@ -12,12 +13,24 @@ export const productsSlice = createSlice({
     }
 })
 
-
 export const getProductsThunk = () => dispatch => {
+
+    dispatch( setIsLoading (true) )
     axios
         .get("https://e-commerce-api-v2.academlo.tech/api/v1/products")
         .then(resp => dispatch(setProducts(resp.data)))
         .catch(error => console.error(error))
+        .finally( ()=> dispatch(setIsLoading(false)))
+}
+
+export const filterCategoriesThunk = () => dispatch =>{
+    
+    dispatch(setIsLoading(true))
+    axios
+    .get('https://e-commerce-api-v2.academlo.tech/api/v1/products/?categoryId=2')
+    .then(resp => dispatch(setProducts( resp.data )))
+    .catch(error => console.error(error))
+    .finally( ()=> dispatch(setIsLoading(false)))
 }
 
 export const { setProducts } = productsSlice.actions;

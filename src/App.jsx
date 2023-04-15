@@ -20,25 +20,27 @@ import Home from './pages/Home'
 import ProductsDetails from './pages/ProductsDetails';
 import Login from './pages/Login'
 import Purchases from './pages/Purchases'
+import { useSelector } from 'react-redux';
+import Loader from "./components/Loader";
 
 function App() {
 
-
-
+  const isLoading = useSelector((state) => state.isLoading)
 
   return (
     <HashRouter>
-          <div className="App">
-            {/* Componente NavBar */}
-            <NavBar />
-      <Routes>
-            {/* RUTAS */}
-        <Route path="/" element={<Home />} />
-        <Route path="/products/:id" element={<ProductsDetails />} />
-	      <Route path="/login" element={<Login />} /> 
-        <Route path="/purchases" element={<Purchases />} /> 
-      </Routes>
-           </div>
+      <div className="App">
+        {isLoading && <Loader />}
+        {/* Componente NavBar */}
+        <NavBar />
+        <Routes>
+          {/* RUTAS */}
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<ProductsDetails />} />
+	        <Route path="/login" element={<Login />} /> 
+          <Route path="/purchases" element={<Purchases />} /> 
+        </Routes>
+      </div>
     </HashRouter>
   );
 }
