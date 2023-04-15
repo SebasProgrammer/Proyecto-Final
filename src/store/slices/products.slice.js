@@ -23,16 +23,25 @@ export const getProductsThunk = () => dispatch => {
         .finally( ()=> dispatch(setIsLoading(false)))
 }
 
-export const filterCategoriesThunk = () => dispatch =>{
+export const filterCategoriesThunk = id => dispatch =>{
     
     dispatch(setIsLoading(true))
     axios
-    .get('https://e-commerce-api-v2.academlo.tech/api/v1/products/?categoryId=2')
+    .get(`https://e-commerce-api-v2.academlo.tech/api/v1/products/?categoryId=${id}`)
     .then(resp => dispatch(setProducts( resp.data )))
     .catch(error => console.error(error))
     .finally( ()=> dispatch(setIsLoading(false)))
 }
 
+export const filterHeadlineThunk = valueInput => dispatch =>{
+    dispatch( setIsLoading(true))
+    axios
+        .get(`https://e-commerce-api-v2.academlo.tech/api/v1/products/?title=${valueInput}`)
+        .then(resp => dispatch(setProducts(resp.data)))
+        .catch(error=> console.log(error))
+        .finally( ()=> dispatch(setIsLoading(false)))
+        
+}
 export const { setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;

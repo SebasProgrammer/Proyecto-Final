@@ -7,24 +7,36 @@ import Col from 'react-bootstrap/Col'; //Columnas
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
+import { Link } from 'react-router-dom';
+
 // Slices - useSelector
 import { useSelector , useDispatch } from 'react-redux';
-import { filterCategoriesThunk, getProductsThunk } from '../store/slices/products.slice';
+import { filterCategoriesThunk, getProductsThunk, filterHeadlineThunk } from '../store/slices/products.slice';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import '../App.css'
+import axios from 'axios';
 
 function Home() {
   // Acceder a slices
   const products = useSelector(state => state.products)
   const dispatch = useDispatch()
-
+  const [categories, setCategories] = useState([])
+  const [inputSearch, setInputSearch] = useState("")
   
   // Damos funcionalidad - useEffect
   useEffect(()=> {
     dispatch(getProductsThunk())
-  },[])
+
+    axios
+      .get('https://e-commerce-api-v2.academlo.tech/api/v1/categories')
+      .then(resp=> setCategories(resp.data))
+      .catch(error=>console.log(error))   
+    },[])
 
   return (
     <div>
@@ -33,12 +45,42 @@ function Home() {
             <p>Celular Cámara microscópica</p>
             <img className='Oppo' src="oppo2.png" alt="" /> */}
 
-          <Row>
+          <Row className='py-3'>
+            {
+              categories.map( category => (
+                <Col key = {category.id}>
+                  <Button className='w-100' onClick={()=>
+                  dispatch(filterCategoriesThunk(category.id))}>{category.name}</Button>
+                </Col>
+              ))
+            }
+
             <Col>
-              <Button onClick={()=>
-              dispatch(filterCategoriesThunk())}>Filtrar</Button>
+              <Button 
+              onClick={ ()=> dispatch(getProductsThunk())}
+              className='w-100'>All</Button>
             </Col>
+            
           </Row>  
+
+          <Row className='py-3'>
+            <Col>
+              <InputGroup className="mb-3">
+                <Form.Control
+                  placeholder="Busca producto por nombre"
+                  aria-label="Nombre de producto"
+                  aria-describedby="basic-addon2"
+                  value={inputSearch}
+                  onChange={e=>setInputSearch(e.target.value)}
+                />
+                <Button
+                variant = "outline-primary"
+                onClick={ () => dispatch(filterHeadlineThunk(inputSearch))}>
+                  Search
+                </Button>
+              </InputGroup>
+            </Col>
+          </Row>
 
           <Row xs={1} md={2} lg={3} className="py-3">
             {/* Mapeo */}
@@ -63,8 +105,12 @@ function Home() {
                   <Card.Text>
                     {item.description}
                   </Card.Text>
-                  {/* Boton para agregar al carrito */}
-                  <Button  variant="primary">Agregar al Carrito</Button>
+                  {/* Boton para ver detalle de producto */}
+                  <Button  
+                  variant="primary"
+                  as = {Link}
+                  to = {`/products/${item.id}`}
+                  > Ver detalle</Button>
                   </Card.Body>
               </Card>
                 </Col>
