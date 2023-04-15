@@ -12,8 +12,11 @@
     height: 720px;
 }
 
-
-
+form {
+    padding-top: 30px;
+    margin: 0 auto;
+    width: 400px;
+}
 
 
 
