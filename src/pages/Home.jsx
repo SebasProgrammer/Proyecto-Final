@@ -14,6 +14,7 @@ import { getProductsThunk } from '../store/slices/products.slice';
 import { useEffect } from 'react';
 
 import React from 'react'
+import '../App.css'
 
 function Home() {
   // Acceder a slices
@@ -33,6 +34,10 @@ function Home() {
   return (
     <div>
       <Container>
+            <h2 className='titleHome'>OPPO RENO 7</h2>
+            <p>Celular Cámara microscópica</p>
+            <img className='Oppo' src="oppo2.png" alt="" />
+            
           <Row xs={1} md={2} lg={3} className="py-3">
             {/* Mapeo */}
             {

@@ -11,7 +11,7 @@ function NavBar() {
     <Container>
       <Navbar.Brand as={ Link} to="/">Ecommerce</Navbar.Brand>
       <Nav className="me-auto">
-        <Nav.Link as={ Link} to="/login">Inicio</Nav.Link>
+        <Nav.Link as={ Link} to="/login">Inicio Sesión</Nav.Link>
         <Nav.Link as={ Link} to="/purchases" >Favoritos</Nav.Link>
         <Nav.Link >Carrito (sidebar)</Nav.Link>
       </Nav>
