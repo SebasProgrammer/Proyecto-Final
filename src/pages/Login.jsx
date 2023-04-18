@@ -1,22 +1,24 @@
 import React from 'react'
 import '../App.css'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function Login() {
   return (
-    <div>
-        <h1>Inicio Sesión</h1>
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+      </Form.Group>
 
-        <form>
-          <div className="input-group mb-3 mx-auto">
-            <input type="text" className="form-control" placeholder="Usuario" />
-          </div>
-
-          <div className="input-group mb-3 mx-auto">
-            <input type="text" className="form-control" placeholder="Contraseña" />
-          </div>
-          <button className="btn btn-primary input-group-text" type="submit">Inicio Sesión</button>
-        </form>
-    </div>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
   )
 }
 

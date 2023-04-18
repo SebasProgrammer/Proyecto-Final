@@ -2,6 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'; //Contenedores
+import Row from 'react-bootstrap/Row';  //Filas
+import Col from 'react-bootstrap/Col'; //Columnas
 
 function ProductsDetails() {
 
@@ -17,9 +20,16 @@ function ProductsDetails() {
   }, []);
 
   return (
-    <div>
-        <h1>{detail.title}</h1>
-    </div>
+    <Container>      
+      <Row>
+        <Col>
+          <h1>{detail.title}</h1>
+          <p>By: {detail.description}</p>
+          <p>{detail.price}</p>
+          <p>{detail.brand}</p>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
