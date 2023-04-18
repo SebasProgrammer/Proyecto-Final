@@ -1,3 +1,4 @@
+// Historial de compras - Pasarelas de pagos
 import React from 'react'
 
 function Purchases() {

@@ -1,11 +1,10 @@
-
 //Necesitamos configurar
-  /* Redux
-    Router dom
-    Boostrap */
+/* Redux
+  Router dom
+  Boostrap */
 
 
-    import './App.css'
+import './App.css'
 
 
 //React Router
@@ -20,28 +19,34 @@ import Home from './pages/Home'
 import ProductsDetails from './pages/ProductsDetails';
 import Login from './pages/Login'
 import Purchases from './pages/Purchases'
+import { useSelector } from 'react-redux';
+import Loader from "./components/Loader";
+import ProtectedRoutes from './components/ProtectedRouter';
 
 function App() {
 
-
-
+  const isLoading = useSelector((state) => state.isLoading)
 
   return (
     <HashRouter>
-          <div className="App">
-            {/* Componente NavBar */}
-            <NavBar />
-      <Routes>
-            {/* RUTAS */}
-        <Route path="/" element={<Home />} />
-        <Route path="/products/:id" element={<ProductsDetails />} />
-	      <Route path="/login" element={<Login />} /> 
-        <Route path="/purchases" element={<Purchases />} /> 
-      </Routes>
-           </div>
+      <div className="App">
+        {isLoading && <Loader />}
+        {/* Componente NavBar */}
+        <NavBar />
+        <Routes>
+          {/* RUTAS */}
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<ProductsDetails />} />
+          <Route path="/login" element={<Login />} />
+          {/* Proteccion de rutas */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/purchases" element={<Purchases />} />
+          </Route>
+
+        </Routes>
+      </div>
     </HashRouter>
   );
 }
 
 export default App;
-
