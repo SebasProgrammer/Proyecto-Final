@@ -74,15 +74,54 @@ form {
     border: 1px solid  black ;
     padding: 3rem;
     margin: 2;
-    background:url("https://acrylgiessen.com/wp-content/uploads/2023/03/tonos-de-rojo.jpg") no-repeat center top;
+    background:url("https://thumbs.dreamstime.com/b/rizos-del-humo-rojo-en-el-fondo-blanco-99009465.jpg") no-repeat center top;
     background-size: cover;
     color: black;
     font-weight:bold;
     height: 400px;
+    border-radius: 30px;
     
   }
 
- 
+  .button{
+    border: 0;
+    background-image:linear-gradient(150deg,#fff,crimson,salmon,firebrick,maroon,red,black) ;
+    border-radius: 8px;
+    display: flex;
+    cursor: pointer;
+    transition: .3s;
+    
+  }
+  .button span{
+    background-color: black;
+    padding: 6px 30px;
+    border-radius: 6px;
+    transition: .3s;
+  }
+
+  button:hover span {
+    background: none;
+  }
+
+
+
+
+  button:active{
+    transform: scale(0.9);
+  }
+
+  .c{
+    font-size: 25px;
+    color: black;
+    text-decoration:underline;
+  }
+
+  .co{
+    font-size: 25px;
+    color: black;
+    text-decoration:underline;
+  }
+
 
 
 

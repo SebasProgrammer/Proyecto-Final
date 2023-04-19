@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import PurchasesSidebar from './PurchasesSidebar';
 
-
+// show = estado     ----- handleClose = Función
 function NavBar() {
   // Estado
   const [show , setShow] = useState(false)
   const handleClose = ( ) => {
-    alert("Cierre de sesión")
+    setShow(false)  // Para cerrar el sidebar
   }
   
   return (
@@ -29,6 +29,7 @@ function NavBar() {
       </Nav>
     </Container>
   </Navbar>
+  {/* Sidebar == Aparece - Muestra */}
   <PurchasesSidebar 
   show={show}
   handleClose={handleClose}

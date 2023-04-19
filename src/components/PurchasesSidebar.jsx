@@ -1,9 +1,24 @@
+/* CARRITO DE COMPRAS */
+
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-const PurchasesSidebar = ({show, handleClose}) => {
+// Importaciones carrito compra
+import { useDispatch,useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import {getShopThunk} from '../store/slices/shop.slice'
+
+const PurchasesSidebar = ({ show, handleClose }) => {
+    const dispatch = useDispatch()
+
+
+// useEffect
+//     useEffect(()=>{
+//         dispatch(getShopThunk())
+//     },[]);
+
     return (
-        <Offcanvas show={show} onHide={handleClose} {...props}>
+        <Offcanvas show={show} onHide={handleClose} placement={"end"} >
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Offcanvas</Offcanvas.Title>
             </Offcanvas.Header>
@@ -17,4 +32,9 @@ const PurchasesSidebar = ({show, handleClose}) => {
 
 export default PurchasesSidebar;
 
-/* cierra el button  */
+// FavoritesSidebar.js
+
+
+/* Corregir PurchasesSidebar */
+
+
