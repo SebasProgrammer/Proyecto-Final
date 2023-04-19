@@ -35,18 +35,18 @@ const navigate = useNavigate()
       onSubmit={handleSubmit(submit)}
     >
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Correo</Form.Label>
+        <Form.Label className='co'>Correo</Form.Label>
         <Form.Control type="email" placeholder="Enter email" 
         { ...register("email")}/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Contraseña</Form.Label>
+        <Form.Label className='c'>Contraseña</Form.Label>
         <Form.Control type="password" placeholder="Password" 
         { ...register("password")}/>
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Iniciar Sesión
+      <Button className='button' variant="primary" type="submit">
+        <span>Inicio sesión</span>
       </Button>
     </Form>
   )

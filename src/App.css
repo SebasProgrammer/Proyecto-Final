@@ -165,9 +165,6 @@ form {
 
   /* Fin Loder */
 
-  button:active{
-    transform: scale(0.9);
-  }
 
   .c{
     font-size: 25px;
