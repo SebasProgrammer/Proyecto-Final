@@ -18,7 +18,7 @@ const navigate = useNavigate()
       .post("https://e-commerce-api-v2.academlo.tech/api/v1/users/login", data)
       .then(resp => {
         console.log(resp.data)
-        localStorage.setItem("token",resp.resp.token)
+        localStorage.setItem("token",resp.data.token)
         navigate("/")
       })
       .catch( error => {
