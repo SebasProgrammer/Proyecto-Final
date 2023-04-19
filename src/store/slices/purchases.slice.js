@@ -3,17 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import getConfig from "../../utils/getConfig";
 
-export const shopSlice = createSlice({
-    name:"shop",
+export const purchasesSlice = createSlice({
+    name:"purchases",
     initialState: [],
     reducers:{
-        setShop : (state, action) =>{
+        setPurchases : (state, action) =>{
             return action.payload
         }
     }
 })
 
-export const getShopThunk = () => (dispatch )=> {
+export const getPurchasesThunk = () => (dispatch )=> {
     axios
     // Agregar token desde postman
         .get("https://e-commerce-api-v2.academlo.tech/api/v1/cart", getConfig())
@@ -21,9 +21,9 @@ export const getShopThunk = () => (dispatch )=> {
         .catch(error => console.error(error))
 }
 
-export const {setShop} = shopSlice.actions;
+export const {setPurchases} = purchasesSlice.actions;
 
-export default shopSlice.reducer;
+export default purchasesSlice.reducer;
 
 // favorites.slice.js
 

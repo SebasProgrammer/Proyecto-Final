@@ -1,4 +1,3 @@
-// Historial de compras - Pasarelas de pagos
 import React from 'react'
 
 function Purchases() {
@@ -10,3 +9,5 @@ function Purchases() {
 }
 
 export default Purchases
+
+// Historial de compras
