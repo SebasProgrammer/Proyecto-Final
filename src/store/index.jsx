@@ -9,6 +9,5 @@ export default  configureStore({
         products,
         isLoading,
         purchases
-
     }
 })

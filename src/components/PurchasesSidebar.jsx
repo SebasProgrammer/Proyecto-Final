@@ -6,25 +6,33 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 // Importaciones carrito compra
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import {getPurchasesThunk} from '../store/slices/purchases.slice'
+import {getFavoritesThunk} from '../store/slices/purchases.slice'
 
 const PurchasesSidebar = ({ show, handleClose }) => {
     const dispatch = useDispatch()
 
+    useEffect(()=>{
+        dispatch(getFavoritesThunk())
+    },[]);
 
-// useEffect
-//     useEffect(()=>{
-//         dispatch(getPurchasesThunk())
-//     },[]);
-
+    const purchases = useSelector( (state) => state.purchases)
+    console.log(purchases)
+    
     return (
         <Offcanvas show={show} onHide={handleClose} placement={"end"} >
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Offcanvas</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements you
-                have chosen. Like, text, images, lists, etc.
+                <ul>
+                    {
+                        purchases.map( item=>(
+                            <li key={item.id}>
+                                Noticia favorita
+                            </li>
+                        ))
+                    }
+                </ul>
             </Offcanvas.Body>
         </Offcanvas>
     );
