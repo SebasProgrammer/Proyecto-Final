@@ -26,9 +26,10 @@ const PurchasesSidebar = ({ show, handleClose }) => {
             <Offcanvas.Body>
                 <ul>
                     {
-                        purchases?.map( item=>(
+                        purchases?.map( item => (
                             <li key={item.id}>
-                                Noticia favorita
+                                <h2>{item?.product.title}</h2>
+                                <img style={{width:80, objectFit: "contain"}} src={item?.product.images[0].url} alt="" />
                             </li>
                         ))
                     }

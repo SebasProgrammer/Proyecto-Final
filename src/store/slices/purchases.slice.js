@@ -30,7 +30,14 @@ export const createFavoriteThunk = (data) => (dispatch) => {
       getConfig()
     )
     .then( () => dispatch(getFavoritesThunk()))
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      if(error.response?.status === 403){
+        alert("Ese producto ya existe en el carrito")
+      }else{
+        
+        console.log(error.response?.data)
+      }
+    });
 };
 
 // export const cartCheckoutThunk = () => (dispatch) => {

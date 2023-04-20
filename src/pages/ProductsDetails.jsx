@@ -25,8 +25,8 @@ function ProductsDetails() {
 
   const addFavorites = ()  => {
     const data = {
-      productId: id,
-      quantity: counter
+      quantity: counter,
+      productId: id
     }
 
     dispatch(createFavoriteThunk( data ))
