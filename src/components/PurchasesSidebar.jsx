@@ -26,7 +26,7 @@ const PurchasesSidebar = ({ show, handleClose }) => {
             <Offcanvas.Body>
                 <ul>
                     {
-                        purchases.map( item=>(
+                        purchases?.map( item=>(
                             <li key={item.id}>
                                 Noticia favorita
                             </li>

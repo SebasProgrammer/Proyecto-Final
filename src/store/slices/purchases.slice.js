@@ -22,16 +22,16 @@ export const getFavoritesThunk = () => (dispatch) => {
     .catch((error) => console.error(error));
 };
 
-// export const createFavoriteThunk = (data) => (dispatch) => {
-//   axios
-//     .post(
-//       "https://e-commerce-api-v2.academlo.tech/api/v1/purchases",
-//       data,
-//       getConfig()
-//     )
-//     .then(() => dispatch(getFavoritesThunk()))
-//     .catch((error) => console.error(error));
-// };
+export const createFavoriteThunk = (data) => (dispatch) => {
+  axios
+    .post(
+      "https://e-commerce-api-v2.academlo.tech/api/v1/cart",
+      data,
+      getConfig()
+    )
+    .then( () => dispatch(getFavoritesThunk()))
+    .catch((error) => console.error(error));
+};
 
 // export const cartCheckoutThunk = () => (dispatch) => {
 //   axios
