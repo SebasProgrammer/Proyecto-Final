@@ -40,11 +40,21 @@ export const createFavoriteThunk = (data) => (dispatch) => {
     });
 };
 
-// export const cartCheckoutThunk = () => (dispatch) => {
+export const cartCheckoutThunk = () => (dispatch) => {
+  axios
+    .post(
+      "https://e-commerce-api-v2.academlo.tech/api/v1/purchases",
+      {},
+      getConfig()
+    )
+    .then(() => dispatch(getFavoritesThunk()))
+    .catch((error) => console.error(error));
+};
+
+// export const getPurchaseCardThunk = () => (dispatch) => {
 //   axios
-//     .post(
+//     .get(
 //       "https://e-commerce-api-v2.academlo.tech/api/v1/purchases",
-//       {},
 //       getConfig()
 //     )
 //     .then(() => dispatch(getFavoritesThunk()))

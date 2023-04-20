@@ -6,7 +6,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 // Importaciones carrito compra
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import {getFavoritesThunk} from '../store/slices/purchases.slice'
+import {getFavoritesThunk, cartCheckoutThunk} from '../store/slices/purchases.slice'
 
 const PurchasesSidebar = ({ show, handleClose }) => {
     const dispatch = useDispatch()
@@ -34,6 +34,8 @@ const PurchasesSidebar = ({ show, handleClose }) => {
                         ))
                     }
                 </ul>
+
+                <Button onClick={() => dispatch(cartCheckoutThunk())}>Checkout</Button>
             </Offcanvas.Body>
         </Offcanvas>
     );
