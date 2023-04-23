@@ -22,7 +22,7 @@ function NavBar() {
       setShow(true)
     }
     else{
-      navigate("#s/login")
+      navigate("/login")
     }
   };
   

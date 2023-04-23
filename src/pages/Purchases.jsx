@@ -6,21 +6,16 @@ import getConfig from '../utils/getConfig';
 import Card from 'react-bootstrap/Card';
 
 function Purchases() {
-  const dispatch = useDispatch()
   const [purchases, setPurchases] = useState([])
 
   useEffect( () =>{
     axios
       .get(`https://e-commerce-api-v2.academlo.tech/api/v1/purchases`, getConfig())
-      .then(resp=>{
+      .then((resp)=>{
         setPurchases(resp.data)
       })
-      .catch( error => console.log(error))
-  })
-
-  useEffect(()=>{
-    console.log(purchases)
-  },[]);
+      .catch( (error) => console.log(error))
+  }, [])
 
   return (
     <div>
