@@ -53,9 +53,7 @@ function ProductsDetails() {
         
         <Col>
           <br />
-          <p style={{textAlign: "justify"}}>{detail.description}</p>
-          <p><strong>${detail.price}</strong></p>
-          
+          <p style={{textAlign: "justify"}}>{detail.description}</p>          
         </Col>
 
       </Row>
