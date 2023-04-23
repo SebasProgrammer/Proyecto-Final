@@ -58,7 +58,7 @@ function Home() {
             <Col>
               <Button 
               onClick={ ()=> dispatch(getProductsThunk())}
-              className='w-100'>All</Button>
+              className='w-100'>Todo</Button>
             </Col>
             
           </Row>  
@@ -102,7 +102,7 @@ function Home() {
                     {/* TITULO DEL PRODUCTO */}
                   <Card.Title>{item.title}</Card.Title>
                   {/* DESCRIPCION DEL PRODUCTO */}
-                  <Card.Text>
+                  <Card.Text style={{textAlign: "justify"}}>
                     {item.description}
                   </Card.Text>
                   {/* Boton para ver detalle de producto */}

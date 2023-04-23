@@ -33,11 +33,11 @@ function NavBar() {
     <Container>
       <Navbar.Brand as={ Link} to="/">Ecommerce</Navbar.Brand>
       <Nav className="me-auto">
-        <Nav.Link as={ Link} to="/login">Inicio Sesión</Nav.Link>
-        <Nav.Link as={ Link} to="/purchases" >Favoritos</Nav.Link>
+        <Nav.Link as={ Link} to="/login">Iniciar Sesión</Nav.Link>
+        <Nav.Link as={ Link} to="/purchases" >Compras</Nav.Link>
         <Nav.Link 
         onClick={() => sideBarAction()}
-        >Carrito (sidebar)</Nav.Link>
+        > <i className='bx bxs-cart' style={{fontSize: 20}}></i> </Nav.Link>
       </Nav>
     </Container>
   </Navbar>

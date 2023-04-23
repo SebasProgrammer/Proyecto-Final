@@ -20,18 +20,18 @@ function Purchases() {
 
   return (
     <div>
-        <h1>Purchases</h1>
+        <h1>Compras</h1>
         {
           purchases?.map( item => (
             <Card style={{ width: '100%', display: "flex", flexDirection:"row", alignItems: "center", justifyContent:"center" ,border:0 }} key={item.id}>
               <Card.Img variant="left" src={item?.product?.images[0].url} style={{height: 200}}/>
               <Card.Body className='d-inline'>
-                <Card.Title>{item?.product?.title}</Card.Title>
+                <Card.Title><i className='bx bxs-purchase-tag-alt bx-tada' style={{color:"#20c7cd", fontSize: 15}}  ></i>  {item?.product?.title} </Card.Title>
                 <Card.Text style={{textAlign: "justify"}}>
                   Cantidad: {item?.product?.description}
                 </Card.Text>
                 <Card.Text style={{fontWeight: "bold"}}>
-                  Cantidad: {item?.quantity} Precio: {item?.product?.price}
+                  Cantidad: {item?.quantity} Precio: {item?.product?.price * item.quantity}
                 </Card.Text>
               </Card.Body>
             </Card>
