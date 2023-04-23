@@ -50,7 +50,7 @@ function ProductsDetails() {
             </Col>
             <Col>
               <Button onClick={addFavorites}>
-                Añadir a favoritos
+                Añadir a Carrito
               </Button>
             </Col>
           </Row>
