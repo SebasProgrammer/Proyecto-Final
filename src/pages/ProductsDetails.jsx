@@ -39,6 +39,16 @@ function ProductsDetails() {
         <Col>
             <h1>{detail.title}</h1>
             <img src={detail?.images?.[0]?.url} alt="" />
+            <p><strong>${detail.price}</strong></p>
+            <Button onClick={() => setCounter(counter-1)}>-</Button>
+            {
+              counter
+            }
+            <Button onClick={() => setCounter(counter+1)}>+</Button>
+            
+            <Button onClick={addFavorites}>
+              Añadir a favoritos
+          </Button>
         </Col>
         
         <Col>
@@ -49,22 +59,7 @@ function ProductsDetails() {
         </Col>
 
       </Row>
-      <Row className='mb-3'>
-        <Col>
-          <Button onClick={() => setCounter(counter-1)}>-</Button>
-            {
-              counter
-            }
-          <Button onClick={() => setCounter(counter+1)}>+</Button>
-        </Col>
-        <Col>
-          <Button onClick={addFavorites}>
-            Añadir a favoritos
-          </Button>
-        </Col>
-      </Row>
-      <Row>
-      </Row>
+      
     </Container>
   )
 }
