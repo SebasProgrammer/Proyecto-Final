@@ -12,6 +12,7 @@ function Purchases() {
     axios
       .get(`https://e-commerce-api-v2.academlo.tech/api/v1/purchases`, getConfig())
       .then((resp)=>{
+        console.log(resp.data)
         setPurchases(resp.data)
       })
       .catch( (error) => console.log(error))
@@ -22,13 +23,15 @@ function Purchases() {
         <h1>Purchases</h1>
         {
           purchases?.map( item => (
-            <Card style={{ width: '100%', display: "flex", flexDirection:"row" }} key={item.id}>
-              <Card.Img variant="left" src={item?.product.images[0].url} style={{width: "150"}}/>
+            <Card style={{ width: '100%', display: "flex", flexDirection:"row", alignItems: "center", justifyContent:"center" ,border:0 }} key={item.id}>
+              <Card.Img variant="left" src={item?.product?.images[0].url} style={{height: 200}}/>
               <Card.Body className='d-inline'>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card's content.
+                <Card.Title>{item?.product?.title}</Card.Title>
+                <Card.Text style={{textAlign: "justify"}}>
+                  Cantidad: {item?.product?.description}
+                </Card.Text>
+                <Card.Text style={{fontWeight: "bold"}}>
+                  Cantidad: {item?.quantity} Precio: {item?.product?.price}
                 </Card.Text>
               </Card.Body>
             </Card>
