@@ -33,12 +33,21 @@ function ProductsDetails() {
   }
 
   return (
-    <Container>      
+    <Container>   
+      
       <Row>
-        <h1>{detail.title}</h1>
-        <p>By: {detail.description}</p>
-        <p>{detail.price}</p>
-        <p>{detail.brand}</p>
+        <Col>
+            <h1>{detail.title}</h1>
+            <img src={detail?.images?.[0]?.url} alt="" />
+        </Col>
+        
+        <Col>
+          <br />
+          <p style={{textAlign: "justify"}}>{detail.description}</p>
+          <p><strong>${detail.price}</strong></p>
+          
+        </Col>
+
       </Row>
       <Row className='mb-3'>
         <Col>
@@ -53,6 +62,8 @@ function ProductsDetails() {
             Añadir a favoritos
           </Button>
         </Col>
+      </Row>
+      <Row>
       </Row>
     </Container>
   )
